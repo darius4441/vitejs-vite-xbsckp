@@ -1,11 +1,26 @@
 <script setup lang="ts">
+import { provide } from 'vue';
+import { useFieldArray, useForm } from 'vee-validate';
+import { toFormValidator } from '@vee-validate/zod';
 import Basket from './components/Basket.vue';
 import ItemCard from './components/ItemCard.vue';
+import { BasketType, basketSchema, BasketItemType } from './utils/schema.ts';
+
+const { handleSubmit, values } = useForm<BasketType>({
+  validationSchema: toFormValidator(basketSchema),
+});
+
+const { fields, push, remove } = useFieldArray<BasketItemType>('basketItems');
+
+// provide
+provide('addItemRef', push);
+provide('removeRef', remove);
 </script>
 
 <template>
   <div class="grid">
     <div class="grid1">
+      <pre>{{ fields }}</pre>
       <Basket />
     </div>
     <div class="grid2">

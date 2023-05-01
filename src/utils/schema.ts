@@ -10,6 +10,7 @@ export const productSchema = zod.object({
 
 export const basketItemSchema = zod.object({
   product: zod.number().min(1),
+  productnAME: zod.string().optional(),
   quantity: zod.string().min(1),
   price: zod.number().min(1),
   semiWholesalePrice: zod.number().min(1).optional(),
