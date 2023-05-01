@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { productSchema } from '../utils/schema.ts'
+</script>
 
 <template>
   <div>IT</div>
