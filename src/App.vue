@@ -20,8 +20,7 @@ provide('removeRef', remove);
 <template>
   <div class="grid">
     <div class="grid1">
-      <pre>{{ fields }}</pre>
-      <Basket />
+      <Basket :items="fields" />
     </div>
     <div class="grid2">
       <ItemCard />
